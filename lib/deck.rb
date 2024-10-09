@@ -5,8 +5,20 @@ class Deck
     def initialize
         @cards = []
     end
-
-    def add_cards(card)
-        @cards << card
-    end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+    #     def add_cards(card)
+#         @cards << card
+#     end
+# end
