@@ -2,13 +2,25 @@ require 'rspec'
 require './lib/card'
 require './lib/deck'
 
-describe Deck do
-    describe 'initialize' do
-        it 'should start as an empty array of cards' do
-            deck = Deck.new([])
+RSpec.describe Deck do
+    it 'exists' do
+        card1 = Card.new(:diamond, 'Queen', 12)
+        card2 = Card.new(:diamond, 'Queen', 12)
+        card3 = Card.new(:heart, 'Ace', 14)
+        cards = [card1, card2, card3]
 
-            expect(deck.cards).to eq([])
-        end
+        deck = Deck.new(cards)
+        expect(deck.cards).to eq([card1, card2, card3])
+    end
+
+    it 'returns rank of card at specified index position' do
+        card1 = Card.new(:diamond, 'Queen', 12)
+        card2 = Card.new(:diamond, 'Queen', 12)
+        card3 = Card.new(:heart, 'Ace', 14)
+        cards = [card1, card2, card3]
+
+        deck = Deck.new(cards)
+        expect(deck.rank_of_card_at(0)).to eq(12)
     end
 end
 
@@ -16,21 +28,3 @@ end
 
 
 
-
-
-
-
-
-
-#     describe 'add_cards' do
-#         it 'should be able to add cards to the cards array' do
-#             deck = Deck.new([])
-
-#             card1 = deck.add_card(:diamond, 'Queen', 12)
-#             card2 = deck.add_card(:spade, '3', 3)
-#             card3 = deck.add_card(:heart, 'Ace', 14)
-
-#             expect(deck.cards).to eq([card1, card2, card3])
-#         end
-#     end
-# end
