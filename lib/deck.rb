@@ -3,6 +3,7 @@ class Deck
     
     def initialize(cards)
         @cards = cards
+
     end
 
     def rank_of_card_at(index)
@@ -10,6 +11,15 @@ class Deck
     end
 
     def high_ranking_cards
-        cards.rank >= 11
+        @cards.find_all do |card|
+            card.rank >= 11
+        end
+    end
+
+    def percent_high_ranking
+        percent_high = @cards.count do |card|
+            card.rank >= 11
+        end
+        (percent_high.to_f / @cards.size * 100).round(2)
     end
 end
