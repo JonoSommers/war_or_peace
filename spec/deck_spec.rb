@@ -13,7 +13,7 @@ RSpec.describe Deck do
         expect(deck.cards).to eq([card1, card2, card3])
     end
 
-    it 'returns rank of card at specified index position' do
+    it 'returns rank of card at the specified index position' do
         card1 = Card.new(:diamond, 'Queen', 12)
         card2 = Card.new(:spade, '3', 3)    
         card3 = Card.new(:heart, 'Ace', 14)
@@ -23,7 +23,7 @@ RSpec.describe Deck do
         expect(deck.rank_of_card_at(0)).to eq(12)
     end
 
-    it 'returns rank of card at specified index position' do
+    it 'returns rank of card at the specified index position' do
         card1 = Card.new(:diamond, 'Queen', 12)
         card2 = Card.new(:spade, '3', 3)    
         card3 = Card.new(:heart, 'Ace', 14)
@@ -53,6 +53,28 @@ RSpec.describe Deck do
         expect(deck.percent_high_ranking).to eq(66.67)
     end
 
+    it 'returns a card that is removed from the top of the deck' do
+        card1 = Card.new(:diamond, 'Queen', 12)
+        card2 = Card.new(:spade, '3', 3)    
+        card3 = Card.new(:heart, 'Ace', 14)
+        cards = [card1, card2, card3]
+
+        deck = Deck.new(cards)
+        expect(deck.remove_card).to eq(card1)
+    end
+
+    it 'returns a card that is added to the bottom of the deck' do
+        card1 = Card.new(:diamond, 'Queen', 12)
+        card2 = Card.new(:spade, '3', 3)    
+        card3 = Card.new(:heart, 'Ace', 14)
+        card4 = Card.new(:club, '5', 5)
+        cards = [card2, card3]
+
+        deck = Deck.new(cards)
+        deck.add_card(card4)
+        expect(deck.cards).to eq([card2, card3, card4])
+    end
+require 'pry'; binding.pry
 end
 
 
