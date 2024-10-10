@@ -22,4 +22,12 @@ class Deck
         end
         (percent_high.to_f / @cards.size * 100).round(2)
     end
+
+    def remove_card
+        @cards.shift
+    end
+
+    def add_card(card4)
+        @cards.append(card4)
+    end
 end
