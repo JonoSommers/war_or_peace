@@ -18,4 +18,24 @@ class Turn
         end
     end
 
+    def winner
+        if @player1.deck.cards[0].rank > @player2.deck.cards[0].rank
+            @player1
+        else
+            @player2
+        end
+    end
+
+    def pile_of_cards
+        @spoils_of_war.push(@player1.deck.cards[0], @player2.deck.cards[0])
+        @player1.deck.cards.shift
+        @player2.deck.cards.shift
+    end
+
+    def award_spoils(winner)
+        winner.deck.cards.concat(@spoils_of_war) if winner
+        @spoils_of_war.clear
+    end
+
 end
+
