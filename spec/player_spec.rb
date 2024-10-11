@@ -1,3 +1,4 @@
+require 'rspec'
 require './lib/card'
 require './lib/deck'
 require './lib/player'
@@ -24,4 +25,3 @@ RSpec.describe Player do
         expect(player.has_lost?).to be(false)
     end
 end
-require 'pry'; binding.pry
