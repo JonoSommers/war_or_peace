@@ -13,15 +13,17 @@ class Turn
             :basic
         elsif @player2.deck.cards[0].rank > @player1.deck.cards[0].rank
             :basic
+        elsif (@player1.deck.cards[0].rank == @player2.deck.cards[0].rank) && (@player1.deck.cards.count >= 3 && @player2.deck.cards.count >= 3)
+            :mutually_assured_destruction
         else
-            @spoils_of_war
+            :war
         end
     end
 
     def winner
         if @player1.deck.cards[0].rank > @player2.deck.cards[0].rank
             @player1
-        else
+        elsif
             @player2
         end
     end
@@ -33,8 +35,10 @@ class Turn
     end
 
     def award_spoils(winner)
-        winner.deck.cards.concat(@spoils_of_war) if winner
-        @spoils_of_war.clear
+        if winner 
+            winner.deck.cards.concat(@spoils_of_war)
+            @spoils_of_war.clear
+        end
     end
 
 end
