@@ -50,7 +50,7 @@ RSpec.describe Turn do
             expect(turn.player2).to eq(player2)
         end
     end
- ##############################################################################################################
+
     describe 'Basic Turn' do
         describe '#type' do
             it "creates a basic turn type" do
@@ -152,7 +152,7 @@ RSpec.describe Turn do
             end
         end
     end
- ##############################################################################################################
+
     describe 'War Turn' do
         describe '#type' do
             it "creates a war turn type" do
@@ -254,7 +254,7 @@ RSpec.describe Turn do
             end
         end
     end
- ##############################################################################################################
+    
     describe 'Mutually_Assured_Destruction Turn' do
         describe '#type' do
             it 'creates a mutually_assured_destruction turn type' do
