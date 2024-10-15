@@ -5,7 +5,7 @@ require './lib/player'
 require './lib/turn'
 
 RSpec.describe Turn do
-    describe '#Initialize' do
+    describe '#initialize' do
         it 'exists' do
             card1 = Card.new(:heart, 'Jack', 11)
             card2 = Card.new(:heart, '10', 10)
@@ -27,7 +27,7 @@ RSpec.describe Turn do
             expect(turn).to be_a(Turn)
         end
 
-        it 'Has attributes' do
+        it 'has attributes' do
             card1 = Card.new(:heart, 'Jack', 11)
             card2 = Card.new(:heart, '10', 10)
             card3 = Card.new(:heart, '9', 9)
