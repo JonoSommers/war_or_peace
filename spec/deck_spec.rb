@@ -16,7 +16,24 @@ RSpec.describe Deck do
   describe '#initialize' do
     it 'exists with attributes' do
       expect(@deck).to be_an_instance_of(Deck)
-      expect(@deck.cards).to eq([])
+    end
+
+    it 'has cards' do
+      expect(@deck.cards).to eq([@card1, @card2, @card3])
+    end
+  end
+
+  describe '#rankg_of_card_at' do
+    it 'returns the rank of a card' do
+      expect(@deck.rank_of_card_at(0)).to eq(12)
+      expect(@deck.rank_of_card_at(2)).to eq(14)
+      expect(@deck.cards).to eq([@card1, @card2, @card3])
+    end
+  end
+
+  describe '#high_ranking_cards' do
+    it 'returns card with a rank above 10' do
+      expect(@deck.high_ranking_cards).to eq([@card1, @card3])
     end
   end
 end
